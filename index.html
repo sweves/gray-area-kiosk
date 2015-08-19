@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gray Area</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/styles/printerexample.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+
+    <script>
+
+    // 	var socket = io.connect('//localhost:3000');
+
+    //     socket.on('status', function(data) {
+    //             console.log(status);
+    //             $('#buttonstatus').text(data.val);
+    //         });
+    // 	socket.on('error', function() { console.error(arguments) });
+    //     socket.on('message', function() { console.log(arguments) });
+
+    // </script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>title</h1>
+
+        <p class="fade">call to action</p>
+        <center><button id="placeholder">Test Button</button></center>
+
+
+    </div>
+
+    <div class="book hide">
+
+        <h1>Book info will go here while sticker prints</h1>
+
+    </div>
+
+<!-- <h1 id='buttonstatus'></h1>
+
+<h1>DYMO Label Framework JavaScript Library Samples: Printers and Multiple Labels Printing</h1> 
+ 
+<div class="header">
+    <div id="sampleDesctiption">
+        <p>
+            This sample shows how new DYMO Label Framework JavaScript Library can be used to enumerate all installed DYMO printers along with their characteristics
+            like online/offline status, printer type, connecting type, etc.
+        </p>
+        <p>
+            Try to connect/disconnect printers and click on 'Refresh' button to see the changes in the table. Notes:
+            <ul>
+                <li>connection state detection works only for local printers</li>
+                <li>isConnected property is not updated automatically. To get current connection state it is nessesary to call dymo.label.framework.getPrinters() again</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<div class="content">
+    <div id="printersInfoContainer">
+    </div>
+
+    <div class="printControls">
+            <button id="updateTableButton">Refresh</button>
+            <button id="printButton">Print printers information on</button>
+            <select id="printersSelect"></select>
+
+    </div>
+</div> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//localhost:3000/socket.io/socket.io.js'></script>
+<script src = "http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js" type="text/javascript" charset="UTF-8"> </script>
+<script src = "//localhost:3000/scripts/script.js" type="text/javascript" charset="UTF-8"> </script>
+<!-- <script src = "//localhost:3000/scripts/printer.js" type="text/javascript" charset="UTF-8"> </script>-->
+
+
+</body>
+</html>
