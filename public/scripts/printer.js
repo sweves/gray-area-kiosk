@@ -297,6 +297,8 @@ Forgotten since November 1903</String>\
     </RootCell>\
 </ContinuousLabel>';
 
+
+
     // prints printers information
     function print(printerName)
     {
@@ -368,9 +370,10 @@ Forgotten since November 1903</String>\
                     $( ".book" ).fadeIn().delay(500).fadeOut();
                     console.log("print!");
                     //console.log(quoteslabel);
-                    print(printersSelect.value);
+                    
                     var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
-                    //generate(rando);
+                    generate(rando);
+                    //print(printersSelect.value);
                 }
 
             });

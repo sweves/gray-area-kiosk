@@ -12,15 +12,23 @@ $( document ).ready(function() {
 	});
 
 
-	var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
-	console.log(rando);
+	// var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
+	// console.log(rando);
 
-		var obj = JSON.parse(books);
+	// generate(rando);
 
-	var newstr = obj[rando].bookcontent;
+	
+
+});
+
+function generate(booknumber){
+
+	var obj = JSON.parse(books);
+
+	var newstr = obj[booknumber].bookcontent;
 	var result = newstr.match( /[^\.!\?]+[\.!\?]+/g );
 
-	console.log( result.length);
+	//console.log( result.length);
 	//console.log(result);
 
 	var stickerquotes = [];
@@ -35,33 +43,43 @@ $( document ).ready(function() {
 	    
 	}
 
-	console.log(stickerquotes.length);
+	//console.log(stickerquotes.length);
 
 	var x = Math.floor((Math.random() * stickerquotes.length) + 1);
-	console.log(stickerquotes[x]);
     //document.getElementById("sentences").innerHTML = stickerquotes[x];
 
    	document.getElementById("sentences").innerHTML =
-	obj[rando].title + "<br>" +
-	obj[rando].author + "<br>" +
-	obj[rando].since + "<br>" +
+	obj[booknumber].title + "<br>" +
+	obj[booknumber].author + "<br>" +
+	obj[booknumber].since + "<br>" +
 	stickerquotes[x];
 
+	var quotestring = "";
 	var str = stickerquotes[x];
 	var words = str.split(" ");
-	for (var i = 0; i < words.length - 1; i++) {
+	words.splice(0, 1);
+	for (var i = 0; i < words.length ; i++) {
 	    words[i] += " ";
+	    if ( i && (i % 3 === 0)) {
+	    	words[i] += "\n"
+	    	quotestring = quotestring + words[i];
+	    } else{
+	    	quotestring = quotestring + words[i];
+	    }
 	}
-	console.log(words);
 
-	title = obj[rando].title;
-	author = obj[rando].author;
-	sincedate = obj[rando].since;
-	quotetext = stickerquotes[x];
+	
+	console.log(quotestring);
+
+	title = obj[booknumber].title;
+	author = obj[booknumber].author;
+	sincedate = obj[booknumber].since;
+	quotetext = quotestring;
 	console.log(title);
+	console.log(author);
+	console.log(sincedate);
 
-
-});
+}
 
 
 
