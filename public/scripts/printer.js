@@ -174,7 +174,7 @@
   </ObjectInfo>\
   <ObjectInfo>\
     <TextObject>\
-      <Name>TEXT</Name>\
+      <Name>quoteslot</Name>\
       <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>\
       <BackColor Alpha="0" Red="255" Green="255" Blue="255"/>\
       <LinkedObjectName></LinkedObjectName>\
@@ -203,7 +203,7 @@ gave me words.</String>\
   </ObjectInfo>\
   <ObjectInfo>\
     <TextObject>\
-      <Name>TEXT_1</Name>\
+      <Name>Puthere</Name>\
       <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>\
       <BackColor Alpha="0" Red="255" Green="255" Blue="255"/>\
       <LinkedObjectName></LinkedObjectName>\
@@ -247,7 +247,7 @@ Forgotten since November 1903</String>\
         <DrawCommands/>\
         <ObjectInfo>\
             <TextObject>\
-                <Name>Text</Name>\
+                <Name>Puthere</Name>\
                 <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
                 <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
                 <LinkedObjectName></LinkedObjectName>\
@@ -274,7 +274,7 @@ Forgotten since November 1903</String>\
     <LabelLength>0</LabelLength>\
     <RootCell>\
             <TextObject>\
-                <Name>Text</Name>\
+                <Name>Puthere</Name>\
                 <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
                 <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
                 <LinkedObjectName></LinkedObjectName>\
@@ -312,6 +312,7 @@ Forgotten since November 1903</String>\
         var labelXml;
         if (printer.printerType == "LabelWriterPrinter")
             labelXml = quoteslabel;
+            //labelXml = dieCutLabelLayout;
         else if (printer.printerType == "TapePrinter")
             labelXml = continuousLabelLayout;
         else
@@ -329,36 +330,25 @@ Forgotten since November 1903</String>\
             // process each printer info as a separate label
             var record = labelSetBuilder.addRecord();
 
+            var quote = "<font family='Courier New' size='12'>"; // default font
+            quote = quote + quotetext;
+            quote = quote + "</font>";  
+
+
+            record.setTextMarkup("quoteslot", quote);
+
             // compose text data
             // use framework's text markup feature to set text formatting
             // because text markup is xml you can use any xml tools to compose it
             // here we will use simple text manipulations t oavoid cross-browser compatibility.
-            var info = "<font family='Courier New' size='14'>"; // default font
-            info = info + "Printer: <b>" + printer.name + "\n</b>"; 
-            info = info + "PrinterType: " + printer.printerType;
-            info = info + "\n<font size='10'>is local: " + printer.isLocal;
-            info = info + "\nis online: " + printer.isConnected + "</font>";
-
-            if (typeof printer.isTwinTurbo != "undefined")
-            {
-                if (printer.isTwinTurbo)
-                    info = info + "<i><u><br/>The printer is TwinTurbo!!!</u></i>";
-                else
-                    info = info + "<font size='6'><br/>Oops, the printer is NOT TwinTurbo</font>";
-            }
-
-            if (typeof printer.isAutoCutSupported != "undefined")
-            {
-                if (printer.isAutoCutSupported)
-                    info = info + "<i><u><br/>The printer supports auto-cut!!!</u></i>";
-                else
-                    info = info + "<font size='6'><br/>The printer does not supports auto-cut</font>";
-            }
-
-            info = info + "</font>";
+            var info = "<font family='Courier New' size='12'>"; // default font
+            info = info + "<b>" + title + "\n</b>"; 
+            info = info + author;
+            info = info + "\nForgotten Since: " + sincedate;
+            info = info + "</font>";            
 
             // when printing put info into object with name "Text"
-            record.setTextMarkup("Text", info);
+            record.setTextMarkup("Puthere", info);
         }
 
         // finally print label with default printing parameters
@@ -378,9 +368,9 @@ Forgotten since November 1903</String>\
                     $( ".book" ).fadeIn().delay(500).fadeOut();
                     console.log("print!");
                     //console.log(quoteslabel);
-                    //print(printersSelect.value);
+                    print(printersSelect.value);
                     var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
-                    generate(rando);
+                    //generate(rando);
                 }
 
             });

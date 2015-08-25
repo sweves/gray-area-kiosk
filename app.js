@@ -17,7 +17,7 @@ function handleFile(err, data) {
     if (err) throw err
     objectt = JSON.parse(data)
     // You can now play with your datas
-    console.log(objectt);
+    //console.log(objectt);
     var str = objectt[0].title;
     // console.log(str);
 }
