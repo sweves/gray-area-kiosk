@@ -46,6 +46,12 @@ p {
 	background-color: #6AFFCB;
 }
 
+#sentences{
+	text-align: left;
+	font-size: 12px;
+
+}
+
 
 @keyframes flash {
     0%   {opacity: 0;}

@@ -7,36 +7,49 @@
     <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="/styles/printerexample.css" />
     <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+    <script src='//localhost:3000/socket.io/socket.io.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+    <script src = "http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js" type="text/javascript" charset="UTF-8"> </script>
+    <script src = "//localhost:3000/data/books.json" type="text/javascript" charset="UTF-8"> </script>
+    <script src = "//localhost:3000/scripts/script.js" type="text/javascript" charset="UTF-8"> </script>
+    <!-- <script src = "//localhost:3000/scripts/printer.js" type="text/javascript" charset="UTF-8"> </script>-->
     <script>
 
-    // 	var socket = io.connect('//localhost:3000');
+    	var socket = io.connect('//localhost:3000');
 
-    //     socket.on('status', function(data) {
-    //             console.log(status);
-    //             $('#buttonstatus').text(data.val);
-    //         });
-    // 	socket.on('error', function() { console.error(arguments) });
-    //     socket.on('message', function() { console.log(arguments) });
+        socket.on('status', function(data) {
+                console.log(status);
+                $('#buttonstatus').text(data.val);
 
-    // </script>
+                if (data.val === 1){
+                    $( ".book" ).fadeIn().delay(500).fadeOut();
+                }
+
+            });
+    	socket.on('error', function() { console.error(arguments) });
+        socket.on('message', function() { console.log(arguments) });
+
+    </script>
 
 </head>
 <body>
 
     <div class="container">
 
-        <h1>title</h1>
+        <h1>Idle</h1>
 
         <p class="fade">call to action</p>
-        <center><button id="placeholder">Test Button</button></center>
-
+<!--         <center><button id="placeholder">Test Button</button></center>
+ -->
+ <div id="sentences"></div>
+<div id="jsondata"></div>
 
     </div>
 
     <div class="book hide">
 
-        <h1>Book info will go here while sticker prints</h1>
+        
 
     </div>
 
@@ -72,11 +85,7 @@
     </div>
 </div> -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//localhost:3000/socket.io/socket.io.js'></script>
-<script src = "http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js" type="text/javascript" charset="UTF-8"> </script>
-<script src = "//localhost:3000/scripts/script.js" type="text/javascript" charset="UTF-8"> </script>
-<!-- <script src = "//localhost:3000/scripts/printer.js" type="text/javascript" charset="UTF-8"> </script>-->
+
 
 
 </body>
