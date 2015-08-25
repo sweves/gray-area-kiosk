@@ -19,7 +19,7 @@ function handleFile(err, data) {
     // You can now play with your datas
     console.log(objectt);
     var str = objectt[0].title;
-    console.log(str);
+    // console.log(str);
 }
 
 
