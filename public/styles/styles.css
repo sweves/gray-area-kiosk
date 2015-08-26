@@ -1,3 +1,7 @@
+html{
+	background-color: #000;
+}
+
 body {
 	font-family: 'Vollkorn', serif;
 	background-color: #000;
@@ -21,7 +25,11 @@ h1{
 	font-weight: 400;
 	font-style: italic;
 	font-size: 150px;
-	margin: 200px 0px 0px 0px;
+	margin: 70px 0px 0px 0px;
+}
+
+p{
+	margin-top: 0px;
 }
 
 .fade {
@@ -56,6 +64,12 @@ h1{
 
 .content{
 	display: none;
+}
+
+.instructions{
+	font-weight: 400;
+	width: 300px;
+	margin: 0px auto 20px auto;
 }
 
 

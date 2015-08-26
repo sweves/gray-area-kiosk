@@ -23,7 +23,13 @@ $( document ).ready(function() {
 
 function generate(){
 
-	var obj = JSON.parse(time);
+	//console.log(piano);
+
+	var options = [eyes, sketches, time, catpj, piano, bestss, fish, jerry, pilgrim];
+	var optionr = Math.floor((Math.random() * 9) );
+	console.log(optionr);
+
+	var obj = JSON.parse(options[optionr]);
 
 	var newstr = obj[0].bookcontent;
 	var result = newstr.match( /[^\.!\?]+[\.!\?]+/g );
@@ -45,7 +51,7 @@ function generate(){
 
 	//console.log(stickerquotes.length);
 
-	var x = Math.floor((Math.random() * stickerquotes.length) + 1);
+	var x = Math.floor((Math.random() * (stickerquotes.length-1)) + 1);
     //document.getElementById("sentences").innerHTML = stickerquotes[x];
 
    	document.getElementById("sentences").innerHTML =
@@ -53,6 +59,9 @@ function generate(){
 	obj[0].author + "<br>" +
 	obj[0].since + "<br>" +
 	stickerquotes[x];
+	//console.log(x);
+	//console.log(stickerquotes.length);
+	//console.log(stickerquotes[88]);
 
 	var quotestring = "";
 	var str = stickerquotes[x];
@@ -60,8 +69,8 @@ function generate(){
 	words.splice(0, 1);
 	for (var i = 0; i < words.length ; i++) {
 	    words[i] += " ";
-	    if ( i && (i % 3 === 0)) {
-	    	words[i] += "\n"
+	    if ( (i != 0) && (i % 3 === 0)) {
+	    	words[i] += "\n";
 	    	quotestring = quotestring + words[i];
 	    } else{
 	    	quotestring = quotestring + words[i];

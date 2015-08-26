@@ -370,8 +370,7 @@ Forgotten since November 1903</String>\
                     $( ".book" ).fadeIn().delay(500).fadeOut();
                     console.log("print!");
                     //console.log(quoteslabel);
-                    
-                    var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
+
                     generate();
                     //print(printersSelect.value);
                 }
