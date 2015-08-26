@@ -21,11 +21,11 @@ $( document ).ready(function() {
 
 });
 
-function generate(booknumber){
+function generate(){
 
-	var obj = JSON.parse(books);
+	var obj = JSON.parse(time);
 
-	var newstr = obj[booknumber].bookcontent;
+	var newstr = obj[0].bookcontent;
 	var result = newstr.match( /[^\.!\?]+[\.!\?]+/g );
 
 	//console.log( result.length);
@@ -49,9 +49,9 @@ function generate(booknumber){
     //document.getElementById("sentences").innerHTML = stickerquotes[x];
 
    	document.getElementById("sentences").innerHTML =
-	obj[booknumber].title + "<br>" +
-	obj[booknumber].author + "<br>" +
-	obj[booknumber].since + "<br>" +
+	obj[0].title + "<br>" +
+	obj[0].author + "<br>" +
+	obj[0].since + "<br>" +
 	stickerquotes[x];
 
 	var quotestring = "";
@@ -71,9 +71,9 @@ function generate(booknumber){
 	
 	console.log(quotestring);
 
-	title = obj[booknumber].title;
-	author = obj[booknumber].author;
-	sincedate = obj[booknumber].since;
+	title = obj[0].title;
+	author = obj[0].author;
+	sincedate = obj[0].since;
 	quotetext = quotestring;
 	console.log(title);
 	console.log(author);
