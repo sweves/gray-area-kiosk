@@ -373,7 +373,7 @@ Forgotten since November 1903</String>\
                     
                     var rando = Math.abs(Math.floor((Math.random() * 2) - 1));;
                     generate(rando);
-                    //print(printersSelect.value);
+                    print(printersSelect.value);
                 }
 
             });
