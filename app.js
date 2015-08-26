@@ -46,17 +46,6 @@ board.on("ready", function() {
   // on a valid pwm pin
   var led = new five.Led(9);
 
-  led.pulse();
-
-  // // Stop and turn off the led pulse loop after
-  // // 10 seconds (shown in ms)
-  // this.wait(10000, function() {
-
-  //   // stop() terminates the interval
-  //   // off() shuts the led off
-  //   led.stop().off();
-  // });
-
 
   // Inject the `sensor` hardware into
   // the Repl instance's context;
@@ -77,6 +66,15 @@ board.on("ready", function() {
     //console.log("up");
     io.sockets.emit('status', {val: this.value});
   });
+
+  led.pulse();
+
+  if(this.value == 1){
+    led.stop().off();
+    led.on();
+  } 
+
+
 });
 
 http.listen(3000, function() {
